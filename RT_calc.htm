@@ -93,7 +93,18 @@
             var result = Math.ceil((newInputs * originalCounters * originalTAT) / (originalInputs * newTAT));
             document.getElementById("result").innerHTML = result;
             document.getElementById("setupcost").innerHTML = '250 dollars';
-            var servercost=result*8*sourceCount;
+            var daycostpersource=8;
+
+
+
+            var servercost=result*daycostpersource*sourceCount;
+            if (sourceCount>1 && newInputs<15) {
+                
+                ntime=Math.ceil(newInputs/5);
+                daycostpersource=daycostpersource*ntime;
+                servercost=result*daycostpersource*sourceCount;
+
+            } 
             var totalcost=servercost+setupCost;
             document.getElementById("scrapecost").innerHTML = servercost + " dollars";
             document.getElementById("totalcost").innerHTML = totalcost+ " dollars";
