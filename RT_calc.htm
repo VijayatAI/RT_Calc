@@ -100,7 +100,8 @@
             var servercost=result*daycostpersource*sourceCount;
             if (sourceCount>1 && newInputs<15) {
                 
-                ntime=Math.ceil(newInputs/5);
+                ntime=Math.ceil(sourceCount/5);
+               
                 daycostpersource=daycostpersource*ntime;
                 servercost=result*daycostpersource*sourceCount;
 
