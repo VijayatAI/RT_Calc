@@ -22,6 +22,14 @@
         input[type="number"] {
             width: 50%;
         }
+        div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: yellow;
+  padding: 5px;
+  font-size: 10px;
+}
 
     </style>
 </head>
@@ -36,7 +44,7 @@
         <input type="number" id="newTAT" value="1"><br><br>
         
         <label for="newSrc" >Enter number of sources:</label>
-        <input type="number" id="newSrc" value="1"><br><br>
+        <input type="number" id="newSrc" value="1"><br>
         <br>
 
         <button onclick="calculateCounters()">Calculate Cost</button>
@@ -79,6 +87,14 @@
 
     </table>
 
+<br>
+
+    <div id="sticky" class="sticky" hidden>Assumptions: <br>
+    1. The customer will not access realtime api more than 10 times in a day.<br>
+    2. Customers will not perform more than 30 daysout.<br>
+    3. Customers do accept the sources with high blocking cannot be served via realtime with consistent success rate.</div>
+
+
     <script>
         function calculateCounters() {
             var originalCounters = 15;
@@ -109,6 +125,9 @@
             var totalcost=servercost+setupCost;
             document.getElementById("scrapecost").innerHTML = servercost + " dollars";
             document.getElementById("totalcost").innerHTML = totalcost+ " dollars";
+
+            document.getElementById("sticky").removeAttribute("hidden");
+
         }
     </script>
 </body>
